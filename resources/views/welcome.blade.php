@@ -30,7 +30,7 @@
     @endif
     </header>
 
-    <h1>Home page</h1>
+    <h1>Dashboard page</h1>
 </body>
 </html>
 
