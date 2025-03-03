@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserPreferenceController;
 use App\Http\Middleware\CheckUserPreferences;
@@ -30,4 +31,11 @@ Route::middleware(['auth', CheckUserPreferences::class])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+
 require __DIR__ . '/auth.php';
