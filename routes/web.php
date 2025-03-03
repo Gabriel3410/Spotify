@@ -35,6 +35,7 @@ Route::middleware(['auth', CheckUserPreferences::class])->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::patch('/admin/tornar-admin/{id}', [AdminController::class, 'tornarAdmin'])->name('admin.tornarAdmin');
 });
 
 
