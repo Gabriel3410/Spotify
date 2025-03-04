@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('artist_id');
             $table->text('title');
-            $table->ipAddress('cover_image')->nullable();
+            $table->string('cover_image', 255)->nullable();
             $table->date('realese_date')->nullable(); //Data de liberação dá música
             $table->timestamps();
         });
