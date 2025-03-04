@@ -11,7 +11,11 @@ class Song extends Model
 {
     protected $table = 'songs';
 
-    protected $fillable = ['artist_id', 'album_id', 'title', 'duration', 'file_url'];
+    protected $fillable = ['artist_id', 'album_id', 'title', 'duration', 'file_url', 'genre'];
+
+    protected $casts = [
+        'genre' => 'array',
+    ];
 
     public function artist(): BelongsTo
     {

@@ -15,13 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-
+                    {{-- para perfis que sejam administradores --}}
                     @if (auth()->user()->is_admin)
-                        {{-- <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">
-                            Acessar Painel Admin
-                        </a> --}}
-                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" >
-                            {{ __('Dashboard administrativo')}}
+                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                            {{ __('Dashboard administrativo') }}
+                        </x-nav-link>
+                    @endif
+
+                    {{-- para perfis que sejam gestores --}}
+
+                    @if (auth()->user()->is_manager)
+                        <x-nav-link :href="route('manager.dashboard')" :active="request()->routeIs('manager.dashboard')">
+                            {{ __('Dashboard gestor') }}
                         </x-nav-link>
                     @endif
                 </div>

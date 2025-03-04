@@ -29,4 +29,9 @@ class Artist extends Model
     {
         return $this->hasMany(Album::class);
     }
+
+    public function UserPreference()
+    {
+        return $this->belongsToMany(UserPreference::class, 'artist_genre');
+    }
 }
