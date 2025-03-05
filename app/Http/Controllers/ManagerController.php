@@ -33,7 +33,7 @@ class ManagerController extends Controller
             'name'  => 'required|string|max:255',
             'bio'   => 'nullable|string',
             'image' => 'nullable|image|max:2048', // imagem opcional com no máximo 2MB
-            'genres' => 'nullable|string|max:255',
+            'genre' => 'nullable|string|max:255',
         ]);
 
         // Se houver imagem, faz o upload e armazena o caminho

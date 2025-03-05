@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('album_id')->nullable();
             $table->text('title')->nullable();
             $table->time('duration')->nullable(); // Tempo de duração da música
-            $table->string('genre', 100)->nullable();
+            $table->string('genre')->nullable();
             $table->string('cover_image', 255)->nullable();
             $table->string('file_url', 255); //URL do arquivo da música
             $table->timestamps();

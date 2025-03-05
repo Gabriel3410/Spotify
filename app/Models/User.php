@@ -47,11 +47,10 @@ class User extends Authenticatable
         ];
     }
 
-    public function user()
+    public function userPreference()
     {
         return $this->hasOne(UserPreference::class);
     }
-
 
     public function playlists(): HasMany
     {

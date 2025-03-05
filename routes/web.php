@@ -13,6 +13,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// dashboard padrão de todos os usuários
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -11,7 +11,7 @@ class Artist extends Model
 {
     protected $table = 'artists';
 
-    protected $fillable = ['name', 'bio', 'image'];
+    protected $fillable = ['name', 'bio', 'image', 'genre'];
 
     // conexões com outras tabelas com albums e songs pois um artista pode tem 1 ou vários albums ou songs;
 
