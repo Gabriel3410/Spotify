@@ -1,5 +1,5 @@
 <x-app-layout>
- <div class="container mx-auto p-4">
+    <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Upload de Música</h1>
 
         @if ($errors->any())
@@ -37,25 +37,32 @@
 
             <div class="mb-4">
                 <label for="title" class="block text-gray-700">Título da Música:</label>
-                <input type="text" name="title" id="title" class="w-full border border-gray-300 p-2 rounded"
-                    required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="genre" class="block text-gray-700">Gênero:</label>
-                <input type="text" name="genre" id="genre" class="w-full border border-gray-300 p-2 rounded"
-                    required>
+                <input type="text" name="title" id="title" class="w-full border border-gray-300 p-2 rounded" required>
             </div>
 
             <div class="mb-4">
-                <label for="cover_image" class="block text-gray-700">Imagem:</label>
+                <label for="genre" class="block text-gray-700">Gênero da Música:</label>
+                <select name="genre" id="genre" class="w-full border border-gray-300 p-2 rounded" required>
+                    <option value="">Selecione o gênero</option>
+                    <option value="rock">Rock</option>
+                    <option value="pop">Pop</option>
+                    <option value="hip-hop">Hip-Hop</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="k-pop">K-pop</option>
+                    <option value="funk">Funk</option>
+                    <option value="pagode">Pagode</option>
+                    <option value="samba">Samba</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="cover_image" class="block text-gray-700">Imagem (Opcional):</label>
                 <input type="file" name="cover_image" id="cover_image" class="w-full">
             </div>
 
             <div class="mb-4">
                 <label for="duration" class="block text-gray-700">Duração (ex: 03:45):</label>
-                <input type="text" name="duration" id="duration" class="w-full border border-gray-300 p-2 rounded"
-                    required>
+                <input type="text" name="duration" id="duration" class="w-full border border-gray-300 p-2 rounded" required>
             </div>
 
             <div class="mb-4">

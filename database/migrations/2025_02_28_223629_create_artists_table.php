@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('bio');
-            $table->json('genre', 100)->nullable();
+            $table->text('genre', 100)->nullable();
             $table->string('image', 255)->nullable(); //URL da imagem
             $table->timestamps();
         });
