@@ -11,16 +11,9 @@ class Song extends Model
 {
     protected $table = 'songs';
 
-    protected $fillable = ['artist_id', 'album_id', 'title', 'duration', 'file_url', 'genre'];
+    protected $fillable = ['artist_id', 'album_id', 'title', 'duration', 'file_url', 'genre_id'];
 
-    protected $casts = [
-        'genre' => 'array',
-    ];
 
-    public function artist(): BelongsTo
-    {
-        return $this->belongsTo(Artist::class);
-    }
 
     public function album(): BelongsTo
     {
@@ -35,5 +28,15 @@ class Song extends Model
     public function playlists(): BelongsToMany
     {
         return $this->belongsToMany(Playlist::class, 'playlist_song', 'song_id', 'playlist_id');
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
+    
+    public function artist(): BelongsTo
+    {
+        return $this->belongsTo(Artist::class);
     }
 }
