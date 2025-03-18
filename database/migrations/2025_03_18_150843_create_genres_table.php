@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('artists', function (Blueprint $table) {
+        Schema::create('genres', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('bio');
-            $table->foreignId('genre_id');
-            $table->string('image', 255)->nullable(); //URL da imagem
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('artists');
+        Schema::dropIfExists('genres');
     }
 };

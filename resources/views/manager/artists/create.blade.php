@@ -24,11 +24,15 @@
                 <label for="bio" class="block text-gray-700">Biografia:</label>
                 <textarea name="bio" id="bio" class="w-full border border-gray-300 p-2 rounded"></textarea>
             </div>
-            
+
             <div class="mb-4">
-                <label for="genre" class="block text-gray-700">Gênero:</label>
-                <input type="text" name="genre" id="genre" class="w-full border border-gray-300 p-2 rounded"
-                    required>
+                <label for="genre_id" class="block text-gray-700">Gênero Musical:</label>
+                <select name="genre_id" id="genre_id" class="w-full border border-gray-300 p-2 rounded" required>
+                    <option value="">Selecione um gênero</option>
+                    @foreach ($genres as $genre)
+                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-4">

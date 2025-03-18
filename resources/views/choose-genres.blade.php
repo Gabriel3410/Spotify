@@ -6,28 +6,28 @@
                 @csrf
                 <div class="options">
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="rock"> Rock
+                        <input class="input" type="checkbox" name="genres[]" value="Rock"> Rock
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="pop"> Pop
+                        <input class="input" type="checkbox" name="genres[]" value="Pop"> Pop
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="hip-hop"> Hip-Hop
+                        <input class="input" type="checkbox" name="genres[]" value="Hip-Hop"> Hip-Hop
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="jazz"> Jazz
+                        <input class="input" type="checkbox" name="genres[]" value="Jazz"> Jazz
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="k-pop"> K-pop
+                        <input class="input" type="checkbox" name="genres[]" value="K-Pop"> K-pop
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="funk"> Funk
+                        <input class="input" type="checkbox" name="genres[]" value="Funk"> Funk
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="pagode"> Pagode
+                        <input class="input" type="checkbox" name="genres[]" value="Pagode"> Pagode
                     </label>
                     <label class="label">
-                        <input class="input" type="checkbox" name="genres[]" value="samba"> Samba
+                        <input class="input" type="checkbox" name="genres[]" value="Samba"> Samba
                     </label>
                 </div>
                 <button type="submit" class="button">Salvar e Continuar</button>
