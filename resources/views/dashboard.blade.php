@@ -4,13 +4,37 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+
+    @if (!$hasContent)
+        <div class="alert alert-info text-center my-4 p-4 bg-blue-100 border border-blue-300 rounded">
+            Nenhum artista ou música disponível nesse estilo ainda, mas em breve será adicionado. 🎶
         </div>
-    </div>
+    @endif
+
+    <h1 style="margin:100px 0 0 100px; color:white; font-size:30px">Dashboard - Artistas e Músicas</h1>
+
+    @foreach ($artists as $artist)
+        <div style="margin: 0 0 0 100px; color:white">
+            <h2>{{ $artist->name }}</h2>
+            <p>{{ $artist->bio }}</p>
+            @if ($artist->image)
+                <img src="{{ asset('storage/' . $artist->image) }}" alt="{{ $artist->name }}" width="150">
+            @endif
+
+            <h4>Músicas:</h4>
+            <ul>
+                @foreach ($artist->songs as $song)
+                    <li>
+                        {{ $song->title }} ({{ $song->duration }})
+                        @if ($song->file_url)
+                            <audio controls style="margin-left: 10px;">
+                                <source src="{{ asset('storage/' . $song->file_url) }}" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        @endif
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endforeach
 </x-app-layout>

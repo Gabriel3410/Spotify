@@ -17,6 +17,20 @@ class ManagerController extends Controller
         return view('manager.dashboard');
     }
 
+
+    /**
+     * Exibe as informações do artista.
+     */
+
+    public function showArtist($id)
+    {
+        // Carrega o artista junto com as músicas relacionadas
+        $artist = Artist::with('songs')->findOrFail($id);
+
+        return view('artist.show', compact('artist'));
+    }
+
+
     /**
      * Exibe o formulário para cadastrar um novo artista.
      */
