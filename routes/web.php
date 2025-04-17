@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserPreferenceController;
 use App\Http\Middleware\CheckUserPreferences;
 use App\Http\Controllers\ManagerController as ControllersManagerController;
@@ -15,9 +16,10 @@ Route::get('/', function () {
 });
 
 // dashboard padrão de todos os usuários
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', CheckUserPreferences::class])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -30,11 +32,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware(['auth', CheckUserPreferences::class])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+
 
 // rotas para o acesso somente dos admins
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -57,6 +55,7 @@ Route::middleware(['auth', 'manager'])->group(function () {
     //-------------------------------------------------------------------------------------------------------------------------------------
     Route::get('/manager/artists/create', [ManagerController::class, 'createArtist'])->name('manager.create_artist');
     Route::post('/manager/artists', [ManagerController::class, 'storeArtist'])->name('manager.store_artist');
+    Route::get('/manager/artists/{id}',[ManagerController::class, 'showArtist'] )->name('manager.artists.show');
     Route::get('/manager/artists/{artist}/edit', [ManagerController::class, 'editArtist'])->name('manager.artists.edit');
     Route::put('/manager/artists/{artist}', [ManagerController::class, 'updateArtist'])->name('manager.artists.update');
     Route::delete('/manager/artists/{artist}', [ManagerController::class, 'destroyArtist'])->name('manager.artists.destroy');
